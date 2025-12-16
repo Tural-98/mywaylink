@@ -1,0 +1,2224 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Way Village Hotel & Spa | Qarlı Dağ Oteli - İsmayıllı</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1e3a8a;
+            --dark-blue: #1e40af;
+            --light-blue: #60a5fa;
+            --snow-white: #f0f9ff;
+            --winter-teal: #0d9488;
+            --accent-gold: #fbbf24;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        /* Snow Effect - Fixed Position */
+        .snow-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .snowflake {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            filter: blur(1px);
+            animation: snowfall linear infinite;
+        }
+
+        @keyframes snowfall {
+            0% {
+                transform: translateY(-100px) translateX(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) translateX(100px) rotate(360deg);
+            }
+        }
+
+        /* ==================== NAVBAR ==================== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            height: 90px;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 12px;
+            z-index: 1001;
+        }
+
+        /* LOGO ŞƏKİLİ */
+        .custom-logo {
+            height: 65px;
+            width: auto;
+            transition: var(--transition);
+            border-radius: 6px;
+        }
+
+        .logo:hover .custom-logo {
+            transform: scale(1.1);
+            filter: brightness(1.1);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1.1;
+        }
+
+        .logo-main {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0;
+        }
+
+        .logo-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            transition: var(--transition);
+            line-height: 1;
+        }
+
+        .logo-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--winter-teal);
+            transition: var(--transition);
+            line-height: 1;
+            margin-top: 3px;
+        }
+
+        .logo:hover .logo-title {
+            color: var(--dark-blue);
+        }
+
+        .logo:hover .logo-subtitle {
+            color: var(--accent-gold);
+        }
+
+        /* MENYU */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 12px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 8px 18px;
+            border-radius: 20px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            display: block;
+            white-space: nowrap;
+        }
+
+        .nav-menu a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-menu a:hover::before {
+            left: 100%;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            background: linear-gradient(135deg, var(--light-blue), var(--winter-teal));
+            color: white;
+            box-shadow: 0 5px 15px rgba(96, 165, 250, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            cursor: pointer;
+            z-index: 1001;
+            transition: var(--transition);
+            padding: 8px;
+        }
+
+        .mobile-menu-btn:hover {
+            color: var(--accent-gold);
+            transform: scale(1.1);
+        }
+
+        /* ==================== ƏSAS BÖLMƏ ==================== */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+                        url('images/1.jpeg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 90px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(30, 58, 138, 0.2), rgba(13, 148, 136, 0.2));
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            color: white;
+            z-index: 2;
+            position: relative;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(45deg, #fff, #c7d2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+            font-weight: 300;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .btn {
+            padding: 18px 45px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-gold), #f59e0b);
+            color: var(--text-dark);
+            box-shadow: 0 10px 30px rgba(251, 191, 36, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(251, 191, 36, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary-blue);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Fade In Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Booking CTA */
+        .booking-cta {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+            scroll-margin-top: 90px;
+        }
+
+        .booking-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+
+        .section-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--accent-gold);
+            border-radius: 2px;
+        }
+
+        .booking-cta p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+            text-align: center;
+        }
+
+        /* ==================== XİDMƏTLƏR ==================== */
+        .services-section {
+            padding: 120px 0;
+            background: var(--snow-white);
+            position: relative;
+            scroll-margin-top: 90px;
+        }
+
+        .services-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, var(--dark-blue), transparent);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            padding: 0 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            cursor: pointer;
+            border: none;
+            text-align: left;
+        }
+
+        .service-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--light-blue), var(--winter-teal));
+            z-index: 2;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--light-blue), var(--winter-teal));
+            color: white;
+            font-size: 4rem;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon {
+            background: linear-gradient(135deg, var(--accent-gold), #f59e0b);
+        }
+
+        .service-content {
+            padding: 40px;
+        }
+
+        .service-content h3 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .service-content p {
+            color: var(--text-light);
+            line-height: 1.6;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .service-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: var(--transition);
+        }
+
+        .service-features li:last-child {
+            border-bottom: none;
+        }
+
+        .service-features i {
+            width: 24px;
+            text-align: center;
+            color: var(--winter-teal);
+        }
+
+        /* ==================== KOTTECLƏR ==================== */
+        .rooms-section {
+            padding: 120px 0;
+            background: var(--snow-white);
+            position: relative;
+            scroll-margin-top: 90px;
+        }
+
+        .rooms-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, var(--dark-blue), transparent);
+        }
+
+        .rooms-title {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .rooms-title h2 {
+            font-size: 3.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--primary-blue), var(--winter-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .rooms-title p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 50px;
+            padding: 0 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .room-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .room-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .room-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--light-blue), var(--winter-teal), var(--accent-gold));
+        }
+
+        .room-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .room-image {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .room-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .room-card:hover .room-image img {
+            transform: scale(1.1);
+        }
+
+        .room-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--accent-gold), #f59e0b);
+            color: var(--text-dark);
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 5px 15px rgba(251, 191, 36, 0.3);
+        }
+
+        .room-content {
+            padding: 40px;
+        }
+
+        .room-title {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .room-price {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            font-weight: 700;
+            margin: 25px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .room-price::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--light-blue), transparent);
+        }
+
+        .room-features {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .room-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: var(--transition);
+        }
+
+        .room-features li:hover {
+            padding-left: 10px;
+            background: rgba(96, 165, 250, 0.05);
+        }
+
+        .room-features li:last-child {
+            border-bottom: none;
+        }
+
+        .room-features i {
+            width: 24px;
+            text-align: center;
+            color: var(--winter-teal);
+            font-size: 1.2rem;
+        }
+
+        /* ==================== OLANAQLAR (ŞƏKİLLƏ) ==================== */
+        .facilities-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            position: relative;
+            scroll-margin-top: 90px;
+        }
+
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            padding: 0 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .facility-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .facility-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .facility-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--light-blue), var(--winter-teal));
+            z-index: 2;
+        }
+
+        .facility-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Şəkil hissəsi */
+        .facility-image {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .facility-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .facility-card:hover .facility-image img {
+            transform: scale(1.1);
+        }
+
+        /* Overlay və ikon */
+        .facility-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(30, 58, 138, 0.7), rgba(13, 148, 136, 0.7));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.9;
+        }
+
+        .facility-icon {
+            font-size: 3.5rem;
+            color: white;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            backdrop-filter: blur(5px);
+            transition: var(--transition);
+        }
+
+        .facility-card:hover .facility-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Mətn hissəsi */
+        .facility-content {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .facility-content h3 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .facility-content p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* ==================== HAQQIMIZDA ==================== */
+        .about-section {
+            padding: 120px 0;
+            background: linear-gradient(rgba(30, 58, 138, 0.05), rgba(30, 58, 138, 0.1));
+            position: relative;
+            scroll-margin-top: 90px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            padding: 0 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .about-content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about-text h3 {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, var(--primary-blue), var(--winter-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-text p {
+            margin-bottom: 25px;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .about-feature.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .about-feature i {
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            background: rgba(251, 191, 36, 0.1);
+            border-radius: 50%;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .about-image.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* ==================== QALEREYA ==================== */
+        .gallery-section {
+            padding: 120px 0;
+            background: white;
+            scroll-margin-top: 90px;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 600px;
+            border-radius: 25px;
+            overflow: hidden;
+            margin-top: 60px;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .swiper.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .swiper-slide {
+            position: relative;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: white;
+            background: rgba(0, 0, 0, 0.3);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+            background: rgba(0, 0, 0, 0.5);
+            transform: scale(1.1);
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            font-size: 1.8rem;
+        }
+
+        /* ==================== ƏLAQƏ ==================== */
+        .contact-section {
+            padding: 120px 0;
+            background: linear-gradient(rgba(30, 58, 138, 0.95), rgba(13, 148, 136, 0.95)),
+                        url('images/contact-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            position: relative;
+            scroll-margin-top: 90px;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,100 L0,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+
+        .contact-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .contact-container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .contact-info h3 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+            color: white;
+            position: relative;
+        }
+
+        .contact-info h3::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background: var(--accent-gold);
+        }
+
+        .contact-details {
+            list-style: none;
+        }
+
+        .contact-details li {
+            margin-bottom: 30px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .contact-details i {
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            margin-top: 3px;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .form-title {
+            color: var(--primary-blue);
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: white;
+            padding: 100px 0 40px;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, var(--light-blue), var(--winter-teal), var(--accent-gold));
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 60px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: var(--accent-gold);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: white;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            transform: translateX(10px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.3rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--accent-gold);
+            color: var(--dark-blue);
+            transform: translateY(-5px) rotate(10deg);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 60px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95rem;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.2) rotate(10deg);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.6);
+            animation: none;
+        }
+
+        /* ==================== RESPONSİVLİK ==================== */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3.8rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .nav-menu {
+                gap: 10px;
+            }
+            
+            .nav-menu a {
+                padding: 7px 15px;
+                font-size: 0.85rem;
+            }
+            
+            .logo-title {
+                font-size: 1.7rem;
+            }
+            
+            .logo-subtitle {
+                font-size: 1rem;
+            }
+            
+            .custom-logo {
+                height: 55px;
+            }
+            
+            .facility-image {
+                height: 220px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 300px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                padding: 120px 40px 40px;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+                gap: 0;
+                transition: right 0.4s ease;
+                z-index: 1000;
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .nav-menu li {
+                margin: 0;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            }
+            
+            .nav-menu a {
+                padding: 20px;
+                display: block;
+                border-radius: 0;
+                text-align: center;
+                font-size: 1.1rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .rooms-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                margin-top: 90px;
+                height: calc(100vh - 90px);
+            }
+            
+            .nav-container {
+                padding: 0 20px;
+            }
+            
+            .facilities-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logo-title {
+                font-size: 1.5rem;
+            }
+            
+            .logo-subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .custom-logo {
+                height: 50px;
+            }
+            
+            .nav-container,
+            .hero-content,
+            .section-container,
+            .footer {
+                padding: 0 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+            
+            .rooms-section,
+            .services-section,
+            .facilities-section,
+            .about-section,
+            .gallery-section,
+            .contact-section {
+                padding: 80px 0;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .swiper {
+                height: 400px;
+            }
+            
+            .rooms-grid,
+            .services-grid,
+            .facilities-grid,
+            .about-content {
+                padding: 0 20px;
+            }
+            
+            .contact-form {
+                padding: 30px 20px;
+            }
+            
+            .facilities-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .facility-image {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                gap: 8px;
+            }
+            
+            .logo-title {
+                font-size: 1.3rem;
+            }
+            
+            .logo-subtitle {
+                font-size: 0.8rem;
+            }
+            
+            .custom-logo {
+                height: 45px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .room-card,
+            .service-card,
+            .facility-card {
+                padding: 30px 20px;
+            }
+            
+            .facility-image {
+                height: 180px;
+            }
+            
+            .service-icon {
+                height: 150px;
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Snow Effect -->
+    <div class="snow-background" id="snowContainer"></div>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <header class="header" id="header">
+        <nav class="nav-container">
+            <a href="#home" class="logo">
+                <img src="images/logo.jpeg" alt="My Way Village Hotel & Spa" class="custom-logo">
+                <div class="logo-text">
+                    <div class="logo-main">
+                        <span class="logo-title">My Way Village</span>
+                        <span class="logo-subtitle">Hotel & Spa</span>
+                    </div>
+                </div>
+            </a>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="active">Ana Səhifə</a></li>
+                <li><a href="#about">Haqqımızda</a></li>
+                <li><a href="#services">Xidmətlər</a></li>
+                <li><a href="#rooms">Kotteclər</a></li>
+                <li><a href="#gallery">Qalereya</a></li>
+                <li><a href="#reservation">Rezervasiya</a></li>
+                <li><a href="#contact">Əlaqə</a></li>
+            </ul>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- ==================== ƏSAS BÖLMƏ ==================== -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Qar Örtüklü Dağlarda<br>Premium Rahatlıq</h1>
+            <p class="hero-subtitle">İsmayıllı'nın Çayqovuşan kəndində, təbiətin qoynunda unikal bir istirahət təcrübəsi. Qışın sehrini My Way Village & Spa'da yaşayın.</p>
+            
+            <div class="hero-btns">
+                <a href="#reservation" class="btn btn-primary">
+                    <i class="fas fa-calendar-check"></i> Online Rezervasiya
+                </a>
+                <a href="#rooms" class="btn btn-secondary">
+                    <i class="fas fa-bed"></i> Kotteclərə Bax
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== REZERVASİYA ==================== -->
+    <section class="booking-cta" id="reservation">
+        <div class="section-container">
+            <div class="section-title">
+                <h2>Həftəsonu Üçün Rezervasiya Edin</h2>
+            </div>
+            <p>Ən yaxşı kottecləri seçin və xüsusi qiymətlərdən yararlanın. Online rezervasiya ilə 24 saat ərzində təsdiq alın.</p>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#contact" class="btn btn-primary" style="font-size: 1.2rem; padding: 20px 50px;">
+                    <i class="fas fa-phone-alt"></i> +994 50 309 93 92
+                </a>
+                <button onclick="openBooking()" class="btn btn-secondary" style="font-size: 1.2rem; padding: 20px 50px; margin-left: 20px;">
+                    <i class="fas fa-external-link-alt"></i> Online Booking
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== XİDMƏTLƏR ==================== -->
+    <section class="services-section" id="services">
+        <div class="rooms-title">
+            <h2>Xidmətlərimiz</h2>
+            <p>My Way Village Hotel & Spa'da sizi gözləyən premium xidmətlər</p>
+        </div>
+        
+        <div class="services-grid">
+            <!-- Karyera -->
+            <button class="service-card" onclick="openCareer()">
+                <div class="service-icon">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Karyera</h3>
+                    <p>Komandamıza qoşulun, bizimlə birgə inkişaf edin</p>
+                    
+                    <ul class="service-features">
+                        <li><i class="fas fa-check-circle"></i> Peşəkar inkişaf imkanları</li>
+                        <li><i class="fas fa-check-circle"></i> Xüsusi təlimlər</li>
+                        <li><i class="fas fa-check-circle"></i> Rəqabətli maaş paketi</li>
+                       
+                    </ul>
+                    
+                    <div style="text-align: center; margin-top: 20px;">
+                        <span class="btn btn-primary" style="display: inline-block; pointer-events: none;">
+                            <i class="fas fa-paper-plane"></i> Müraciət et
+                        </span>
+                    </div>
+                </div>
+            </button>
+            
+            <!-- Spa & Wellness -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-spa"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Spa & Wellness</h3>
+                    <p>Sağlamlıq və rahatlıq üçün xüsusi proqramlar</p>
+                    
+                    <ul class="service-features">
+                        <li><i class="fas fa-check-circle"></i> Professional masaj</li>
+                        <li><i class="fas fa-check-circle"></i> Sauna & Buxar otağı</li>
+                        <li><i class="fas fa-check-circle"></i> Kündə terapiyası</li>
+                        <li><i class="fas fa-check-circle"></i> Detoks proqramları</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Tur & Ekskursiya -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-hiking"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Tur & Ekskursiya</h3>
+                    <p>İsmayıllının təbiət gözəlliklərini kəşf edin</p>
+                    
+                    <ul class="service-features">
+                        <li><i class="fas fa-check-circle"></i> Təbiət gəzintiləri</li>
+                        <li><i class="fas fa-check-circle"></i> Dağ turizmi</li>
+                        <li><i class="fas fa-check-circle"></i> Mədəniyyət turları</li>
+                        <li><i class="fas fa-check-circle"></i> Professional bələdçi</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== KOTTECLƏR ==================== -->
+    <section class="rooms-section" id="rooms">
+        <div class="rooms-title">
+            <h2>Premium Kotteclər & Qiymətlər</h2>
+            <p>Her biri özünəməxsus dizayn və rahatlıq təklif edən lüks kotteclərimiz</p>
+        </div>
+        
+        <div class="rooms-grid">
+            <!-- Standart Kottec -->
+            <div class="room-card">
+                <div class="room-image">
+                    <img src="images/s otaq.jpeg" alt="Standart Kottec">
+                    <div class="room-badge">Ən Çox Seçilən</div>
+                </div>
+                <div class="room-content">
+                    <h3 class="room-title">Standart Kottec</h3>
+                    
+                    <div class="room-price">200 AZN / gecə</div>
+                    
+                    <ul class="room-features">
+                        <li><i class="fas fa-expand-arrows-alt"></i> <strong>48 m²</strong> sahə</li>
+                        <li><i class="fas fa-users"></i> <strong>2 nəfər 5+30 AZN</strong> tutum</li>
+                        <li><i class="fas fa-bed"></i> Geniş yataq otağı</li>
+                        <li><i class="fas fa-bath"></i> Şəxsi hamam</li>
+                        <li><i class="fas fa-snowflake"></i> Kondisioner sistemi</li>
+                        <li><i class="fas fa-tv"></i> Smart TV</li>
+                        <li><i class="fas fa-wifi"></i> Yüksək sürətli WiFi</li>
+                        <li><i class="fas fa-mug-hot"></i> Çay/kofe dəsti</li>
+                    </ul>
+                    
+                    <a href="#contact" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
+                        <i class="fas fa-bookmark"></i> Rezervasiya Et
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Duplex Kottec -->
+            <div class="room-card">
+                <div class="room-image">
+                    <img src="images/duplexk.jpeg" alt="Duplex Kottec">
+                    <div class="room-badge">Yeni</div>
+                </div>
+                <div class="room-content">
+                    <h3 class="room-title">Duplex Kottec</h3>
+                    
+                    <div class="room-price">250 AZN / gecə</div>
+                    
+                    <ul class="room-features">
+                        <li><i class="fas fa-expand-arrows-alt"></i> <strong>50 m²</strong> sahə</li>
+                        <li><i class="fas fa-users"></i> <strong>2 nəfər 5+30 AZN</strong> tutum</li>
+                        <li><i class="fas fa-layer-group"></i> 2 mərtəbəli dizayn</li>
+                        <li><i class="fas fa-couch"></i> Ayrı oturma sahəsi</li>
+                        <li><i class="fas fa-fire"></i> İsti döşəmə sistemi</li>
+                        <li><i class="fas fa-bath"></i> Lüks hamam</li>
+                        <li><i class="fas fa-utensils"></i> Mini mətbəx</li>
+                        <li><i class="fas fa-tree"></i> Dağ mənzərəsi</li>
+                    </ul>
+                    
+                    <a href="#contact" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
+                        <i class="fas fa-bookmark"></i> Rezervasiya Et
+                    </a>
+                </div>
+            </div>
+            
+            <!-- VIP Kottec -->
+            <div class="room-card">
+                <div class="room-image">
+                    <img src="images/duplex.jpeg" alt="VIP Kottec">
+                    <div class="room-badge">Ailə üçün</div>
+                </div>
+                <div class="room-content">
+                    <h3 class="room-title">VIP Kottec</h3>
+                    
+                    <div class="room-price">350 AZN / gecə</div>
+                    
+                    <ul class="room-features">
+                        <li><i class="fas fa-expand-arrows-alt"></i> <strong>50 m²</strong> sahə</li>
+                        <li><i class="fas fa-users"></i> <strong>4 nəfər 5+30 AZN</strong> tutum</li>
+                        <li><i class="fas fa-bed"></i> 2 ayrı yataq otağı</li>
+                        <li><i class="fas fa-bath"></i> 2 şəxsi hamam</li>
+                        <li><i class="fas fa-couch"></i> Geniş oturma sahəsi</li>
+                        <li><i class="fas fa-glass-cheers"></i> Mini-bar</li>
+                        <li><i class="fas fa-hot-tub"></i> Jacuzzi (Tip 2-də)</li>
+                    </ul>
+                    
+                    <a href="#contact" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
+                        <i class="fas fa-bookmark"></i> Rezervasiya Et
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== OLANAQLAR (ŞƏKİLLƏ) ==================== -->
+    <section class="facilities-section">
+        <div class="section-container">
+            <div class="section-title">
+                <h2 style="color: var(--primary-blue);">Otel Olanakları</h2>
+                <p style="color: var(--text-light);">My Way Village Hotel & Spa'da sizi gözləyən premium xidmətlər</p>
+            </div>
+            
+            <div class="facilities-grid">
+                <!-- Hovuz -->
+                <div class="facility-card">
+                    <div class="facility-image">
+                        <img src="images/hovuz.jpeg" alt="Dağ mənzərəli hovuz">
+                        <div class="facility-overlay">
+                            <div class="facility-icon">
+                                <i class="fas fa-swimming-pool"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="facility-content">
+                        <h3>Hovuz</h3>
+                        <p>Dağ mənzərəli hovuz</p>
+                    </div>
+                </div>
+                
+                <!-- Barbekü Zonası -->
+                <div class="facility-card">
+                    <div class="facility-image">
+                        <img src="images/barbuke.jpeg" alt="Barbekü zonası">
+                        <div class="facility-overlay">
+                            <div class="facility-icon">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="facility-content">
+                        <h3>Barbekü Zonası</h3>
+                        <p>Xüsusi ocaq başı və barbekü sahəsi, dostlarınızla keyfiyyətli vaxt</p>
+                    </div>
+                </div>
+                
+                <!-- Spa & Wellness -->
+                <div class="facility-card">
+                    <div class="facility-image">
+                        <img src="images/q3.jpeg" alt="Spa & Wellness">
+                        <div class="facility-overlay">
+                            <div class="facility-icon">
+                                <i class="fas fa-spa"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="facility-content">
+                        <h3>Spa & Wellness</h3>
+                        <p>Sauna, buxar otağı, kündə və professional masaj xidmətləri</p>
+                    </div>
+                </div>
+                
+                <!-- Restoran & Teras -->
+                <div class="facility-card">
+                    <div class="facility-image">
+                        <img src="images/restaran.jpeg" alt="Restoran & Teras">
+                        <div class="facility-overlay">
+                            <div class="facility-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="facility-content">
+                        <h3>Restoran & Teras</h3>
+                        <p>Milli və beynəlxalq mətbəx, dağ mənzərəli yemək təcrübəsi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== HAQQIMIZDA ==================== -->
+    <section class="about-section" id="about">
+        <div class="about-content">
+            <div class="about-text">
+                <h3>My Way Village & Spa Haqqında</h3>
+                <p>İsmayıllının Çayqovuşan kəndində yerləşən My Way Village Hotel & Spa, təbiətin gözəlliyi ilə müasir rahatlığın qovuşduğu unikal bir oteldir.</p>
+                <p>Kotteclərimiz qış aylarında isti döşəmə, kondisioner və tam təchizatla təmin olunmuşdur. Hər kottecdə balkon, dağ mənzərəsi və rahat oturma sahəsi var.</p>
+                
+                <div class="about-features">
+                    <div class="about-feature">
+                        <i class="fas fa-snowflake"></i>
+                        <div>
+                            <h4>Qış Paketləri</h4>
+                            <p>Xüsusi qış təklifləri</p>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <i class="fas fa-wifi"></i>
+                        <div>
+                            <h4>Yüksək WiFi</h4>
+                            <p>Bütün oteldə sürətli internet</p>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <i class="fas fa-parking"></i>
+                        <div>
+                            <h4>Pulsuz Parkinq</h4>
+                            <p>Güvənli parkinq sahəsi</p>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <i class="fas fa-concierge-bell"></i>
+                        <div>
+                            <h4>24/7 Xidmət</h4>
+                            <p>Gecə-gündüz qonaq xidməti</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-image">
+                <img src="images/about.jpeg" alt="My Way Village & Spa">
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== QALEREYA ==================== -->
+    <section class="gallery-section" id="gallery">
+        <div class="section-container">
+            <div class="section-title">
+                <h2 style="color: var(--primary-blue);">Foto Qalereya</h2>
+                <p style="color: var(--text-light);">Otelimizdən, kotteclərimizdən və ətraf təbiətdən seçilmiş şəkillər</p>
+            </div>
+            
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="images/q1.jpeg" alt="Otel Görünüşü">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/q2.jpeg" alt="Kottec İçi">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/q3.jpeg" alt="Standart Otaq">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/q4.jpeg" alt="Duplex Kottec">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/q5.jpeg" alt="Duplex Kottec">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/q6.jpeg" alt="Duplex Kottec">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/q7.jpeg" alt="Duplex Kottec">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/q8.jpeg" alt="Duplex Kottec">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/q9.jpeg" alt="Duplex Kottec">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/q10.jpeg" alt="Duplex Kottec">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/q11q.jpeg" alt="Duplex Kottec">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/q12.jpeg" alt="Duplex Kottec">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/q13.jpeg" alt="Duplex Kottec">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/q14.jpeg" alt="Duplex Kottec">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/q15.jpeg" alt="Duplex Kottec">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/q16q.jpeg" alt="Duplex Kottec">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/q17.jpeg" alt="Duplex Kottec">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/q18.jpeg" alt="Duplex Kottec">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/q19.jpeg" alt="Duplex Kottec">
+                    </div>
+                </div>
+                
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ƏLAQƏ ==================== -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Bizimlə Əlaqə</h3>
+                
+                <ul class="contact-details">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Ünvan</h4>
+                            <p>İsmayıllı rayonu<br>Çayqovuşan kəndi<br>My Way Village Hotel & Spa</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>Telefon</h4>
+                            <p><a href="tel:+994503099392" style="color: white; text-decoration: none; font-weight: 600; font-size: 1.2rem;">+994 50 309 93 92</a></p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>mywayvillagehotelandresorts@gmail.com</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>İş Saatları</h4>
+                            <p>Həftənin 7 günü, 24 saat</p>
+                        </div>
+                    </li>
+                </ul>
+                
+               
+            </div>
+            
+            <div class="contact-form">
+                <h3 class="form-title">Rezervasiya Üçün Zəng Edin</h3>
+                <p style="color: var(--text-light); margin-bottom: 30px; text-align: center;">
+                    Kottec rezervasiyası etmək və ya məlumat almaq üçün birbaşa bizə zəng edin:
+                </p>
+                
+                <div style="text-align: center;">
+                    <a href="tel:+994503099392" style="display: inline-block; background: linear-gradient(135deg, var(--accent-gold), #f59e0b); color: var(--text-dark); padding: 20px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.3rem; transition: var(--transition); margin-bottom: 30px;">
+                        <i class="fas fa-phone-alt"></i> +994 50 309 93 92
+                    </a>
+                    
+                    <p style="color: var(--text-light); margin: 30px 0 20px; font-size: 1.1rem;">
+                        Və ya WhatsApp üzərindən yazın:
+                    </p>
+                    
+                    <a href="https://wa.me/994503099392" style="display: inline-flex; align-items: center; gap: 15px; background: #25D366; color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: var(--transition);">
+                        <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i> WhatsApp-dan Yazın
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>My Way Village Hotel & Spa</h3>
+                <p style="color: rgba(255, 255, 255, 0.8); margin-top: 20px; line-height: 1.6;">
+                    İsmayıllının Çayqovuşan kəndində yerləşən premium kottec oteli. Qarlı dağ mənzərəsi, spa mərkəzi və modern rahatlıqla unikal təcrübə.
+                </p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Səhifələr</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Ana Səhifə</a></li>
+                    <li><a href="#about">Haqqımızda</a></li>
+                    <li><a href="#services">Xidmətlər</a></li>
+                    <li><a href="#rooms">Kotteclər</a></li>
+                    <li><a href="#gallery">Qalereya</a></li>
+                    <li><a href="#reservation">Rezervasiya</a></li>
+                    <li><a href="#contact">Əlaqə</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Xidmətlər</h3>
+                <ul class="footer-links">
+                    <li><a href="#services">Karyera</a></li>
+                    <li><a href="#services">Spa & Wellness</a></li>
+                    <li><a href="#services">Tur & Ekskursiya</a></li>
+                    <li><a href="#facilities">Hovuz</a></li>
+                    <li><a href="#facilities">Barbekü Zonası</a></li>
+                    <li><a href="#facilities">Restoran & Teras</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Əlaqə</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> İsmayıllı, Çayqovuşan</li>
+                    <li><i class="fas fa-phone-alt" style="margin-right: 10px;"></i> +994 50 309 93 92</li>
+                    <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> mywayvillagehotelandresorts@gmail.com</li>
+                    <li><i class="fas fa-clock" style="margin-right: 10px;"></i> 24/7 Açıq</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 My Way Village Hotel & Spa. Bütün hüquqlar qorunur. | İsmayıllı • Çayqovuşan </p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/994503099392" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    
+    <script>
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize snow effect
+            createSnow();
+            
+            // Initialize Swiper
+            const swiper = new Swiper('.mySwiper', {
+                loop: true,
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                effect: 'slide',
+                speed: 1000,
+                grabCursor: true,
+            });
+
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navMenu = document.getElementById('navMenu');
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
+                    '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            });
+
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                });
+            });
+
+            // Active Navigation
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            
+            function updateActiveNav() {
+                let scrollPos = window.scrollY + 90;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                        const currentId = section.getAttribute('id');
+                        
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${currentId}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', updateActiveNav);
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const offsetTop = targetElement.offsetTop - 90;
+                        
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        
+                        // Special handling for about features
+                        if (entry.target.classList.contains('about-content')) {
+                            setTimeout(() => {
+                                const features = entry.target.querySelectorAll('.about-feature');
+                                features.forEach((feature, index) => {
+                                    setTimeout(() => {
+                                        feature.classList.add('visible');
+                                    }, index * 100);
+                                });
+                            }, 300);
+                        }
+                        
+                        // Special handling for about image
+                        if (entry.target.classList.contains('about-image')) {
+                            entry.target.classList.add('visible');
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for animation
+            const animatedElements = document.querySelectorAll(
+                '.room-card, .service-card, .facility-card, .about-content, .about-image, .swiper, .contact-container'
+            );
+            
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+
+        // Snow Effect
+        function createSnow() {
+            const snowContainer = document.getElementById('snowContainer');
+            const snowflakeCount = 200;
+            
+            for (let i = 0; i < snowflakeCount; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.className = 'snowflake';
+                
+                // Random size
+                const size = Math.random() * 6 + 2;
+                snowflake.style.width = `${size}px`;
+                snowflake.style.height = `${size}px`;
+                
+                // Random position
+                snowflake.style.left = `${Math.random() * 100}%`;
+                
+                // Random animation duration
+                const duration = Math.random() * 10 + 5;
+                snowflake.style.animationDuration = `${duration}s`;
+                
+                // Random delay
+                snowflake.style.animationDelay = `${Math.random() * 5}s`;
+                
+                // Random opacity
+                snowflake.style.opacity = Math.random() * 0.7 + 0.3;
+                
+                // Random blur
+                snowflake.style.filter = `blur(${Math.random() * 2}px)`;
+                
+                snowContainer.appendChild(snowflake);
+                
+                // Remove snowflake after animation
+                setTimeout(() => {
+                    snowflake.remove();
+                }, duration * 1000);
+            }
+            
+            // Continue creating snowflakes
+            setInterval(() => {
+                const snowflake = document.createElement('div');
+                snowflake.className = 'snowflake';
+                
+                const size = Math.random() * 6 + 2;
+                snowflake.style.width = `${size}px`;
+                snowflake.style.height = `${size}px`;
+                snowflake.style.left = `${Math.random() * 100}%`;
+                
+                const duration = Math.random() * 10 + 5;
+                snowflake.style.animationDuration = `${duration}s`;
+                snowflake.style.animationDelay = `${Math.random() * 5}s`;
+                snowflake.style.opacity = Math.random() * 0.7 + 0.3;
+                snowflake.style.filter = `blur(${Math.random() * 2}px)`;
+                
+                snowContainer.appendChild(snowflake);
+                
+                setTimeout(() => {
+                    snowflake.remove();
+                }, duration * 1000);
+            }, 300);
+        }
+
+        // ========== KARYERA FUNKSİYASI ==========
+        function openCareer() {
+            // WhatsApp nömrəniz
+            const phoneNumber = "994503099392"; // Buraya nömrənizi yazın
+            
+            // WhatsApp mesaj mətni
+            const message = `Salam, My Way Village Hotel & Spa komandasına qoşulmaq istəyirəm.%0A%0A` +
+                           `*Məlumatlarım:*%0A` +
+                           `Ad: %0A` +
+                           `Soyad: %0A` +
+                           `Yaş: %0A` +
+                           `Cins: %0A` +
+                           `Təhsil: %0A` +
+                           `Təcrübə: %0A` +
+                           `İxtisas: %0A` +
+                           `Maraqlanan vəzifə: %0A` +
+                           `Əlaqə nömrəsi: %0A` +
+                           `Email: %0A` +
+                           `Qeydlər: %0A%0A` +
+                           `*Booking üçün:* https://booking-linkiniz.com`;
+            
+            // WhatsApp linkini aç
+            window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+        }
+
+        // ========== BOOKİNG FUNKSİYASI ==========
+        function openBooking() {
+            // Booking linkinizi buraya əlavə edin
+            const bookingUrl = "https://www.booking.com/hotel/az/my-way-willage-amp-spa.tr.html?aid=304142&label=gen173nr-10CAEoggI46AdIM1gEaBGIAQGYATO4ARfIAQzYAQPoAQH4AQGIAgGoAgG4Av6KgsoGwAIB0gIkMmRhZjAyZTYtZTkzZi00YmUxLWExMjAtMGEzM2Q2ZjM1YjNi2AIB4AIB&sid=3020460a2fe34ddf325872abb181c411&all_sr_blocks=1458733901_422091920_0_1_0&checkin=2025-12-17&checkout=2025-12-18&dest_id=14587339&dest_type=hotel&dist=0&group_adults=2&group_children=0&hapos=1&highlighted_blocks=1458733901_422091920_0_1_0&hpos=1&matching_block_id=1458733901_422091920_0_1_0&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=1458733901_422091920_0_1_0__20000&srepoch=1765836166&srpvid=77b49b0da26101d0&type=total&ucfs=1&"; // Buraya booking linkinizi yazın
+            
+            // Yeni pəncərədə aç
+            window.open(bookingUrl, '_blank');
+            
+            // Əlavə olaraq WhatsApp mesajı da göndərmək istəyirsinizsə:
+            // const phoneNumber = "994503099392";
+            // const bookingMessage = "Salam, My Way Village Hotel & Spa üçün rezervasiya etmək istəyirəm. Mənə kömək edə bilərsinizmi?";
+            // window.open(`https://wa.me/${phoneNumber}?text=${bookingMessage}`, '_blank');
+        }
+
+        // ========== NAVBARDA "XİDMƏTLƏR" LINKİ ÜÇÜN ==========
+        function scrollToServices() {
+            const servicesSection = document.getElementById('services');
+            if (servicesSection) {
+                const offsetTop = servicesSection.offsetTop - 90;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    </script>
+</body>
+</html>
