@@ -2,7 +2,7 @@
 <html lang="az">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>My Way Village Hotel Resort & Spa | Qarlı Dağ Oteli - İsmayıllı</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
@@ -30,6 +30,7 @@
         html {
             scroll-behavior: smooth;
             scroll-padding-top: 90px;
+            font-size: 16px;
         }
 
         body {
@@ -39,11 +40,26 @@
             line-height: 1.7;
             overflow-x: hidden;
             position: relative;
+            min-height: 100vh;
+            width: 100%;
         }
 
         h1, h2, h3, h4 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
+        }
+
+        /* ==================== RESPONSIVE FONT SIZES ==================== */
+        @media (max-width: 768px) {
+            html {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            html {
+                font-size: 13px;
+            }
         }
 
         /* Snow Effect - Fixed Position */
@@ -93,7 +109,7 @@
         .nav-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 30px;
+            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -104,8 +120,9 @@
             display: flex;
             align-items: center;
             text-decoration: none;
-            gap: 12px;
+            gap: 1rem;
             z-index: 1001;
+            flex-shrink: 0;
         }
 
         /* LOGO ŞƏKİLİ */
@@ -114,6 +131,8 @@
             width: auto;
             transition: var(--transition);
             border-radius: 6px;
+            max-width: 100%;
+            object-fit: contain;
         }
 
         .logo:hover .custom-logo {
@@ -151,7 +170,7 @@
             color: var(--winter-teal);
             transition: var(--transition);
             line-height: 1;
-            margin-top: 3px;
+            margin-top: 0.3rem;
         }
 
         .logo:hover .logo-title {
@@ -166,7 +185,7 @@
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 12px;
+            gap: 1rem;
             margin: 0;
             padding: 0;
         }
@@ -175,8 +194,8 @@
             color: var(--primary-blue);
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.9rem;
-            padding: 8px 18px;
+            font-size: 0.95rem;
+            padding: 0.5rem 1.2rem;
             border-radius: 20px;
             transition: var(--transition);
             position: relative;
@@ -217,7 +236,12 @@
             cursor: pointer;
             z-index: 1001;
             transition: var(--transition);
-            padding: 8px;
+            padding: 0.5rem;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .mobile-menu-btn:hover {
@@ -228,15 +252,18 @@
         /* ==================== ƏSAS BÖLMƏ ==================== */
         .hero {
             height: 100vh;
+            min-height: 600px;
             background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
                         url('images/1.jpeg');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
             margin-top: 90px;
+            padding: 2rem;
         }
 
         .hero::before {
@@ -253,17 +280,18 @@
         .hero-content {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 2rem;
             color: white;
             z-index: 2;
             position: relative;
             text-align: center;
+            width: 100%;
         }
 
         .hero h1 {
-            font-size: 4.5rem;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
             line-height: 1.2;
             text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5);
             background: linear-gradient(45deg, #fff, #c7d2fe);
@@ -271,29 +299,33 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             animation: fadeInUp 1s ease;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .hero-subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 40px;
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            margin-bottom: 2.5rem;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
             opacity: 0.9;
             font-weight: 300;
             animation: fadeInUp 1s ease 0.2s both;
+            padding: 0 1rem;
         }
 
         .hero-btns {
             display: flex;
-            gap: 20px;
+            gap: 1.5rem;
             justify-content: center;
-            margin-top: 40px;
+            margin-top: 2.5rem;
             animation: fadeInUp 1s ease 0.4s both;
+            flex-wrap: wrap;
         }
 
         .btn {
-            padding: 18px 45px;
+            padding: 1rem 2.5rem;
             border-radius: 50px;
             font-weight: 600;
             font-size: 1.1rem;
@@ -301,11 +333,15 @@
             transition: var(--transition);
             display: inline-flex;
             align-items: center;
-            gap: 12px;
+            justify-content: center;
+            gap: 0.8rem;
             border: none;
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            min-width: 200px;
+            text-align: center;
+            flex-shrink: 0;
         }
 
         .btn::before {
@@ -364,7 +400,7 @@
         .booking-cta {
             background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
             color: white;
-            padding: 100px 0;
+            padding: 5rem 0;
             position: relative;
             overflow: hidden;
             scroll-margin-top: 90px;
@@ -384,20 +420,20 @@
         .section-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 2rem;
             position: relative;
             z-index: 2;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 3rem;
         }
 
         .section-title h2 {
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 4vw, 3.5rem);
             color: white;
-            margin-bottom: 20px;
+            margin-bottom: 1rem;
             position: relative;
             display: inline-block;
         }
@@ -405,28 +441,29 @@
         .section-title h2::after {
             content: '';
             position: absolute;
-            bottom: -15px;
+            bottom: -0.8rem;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
+            width: 6rem;
             height: 4px;
             background: var(--accent-gold);
             border-radius: 2px;
         }
 
         .booking-cta p {
-            font-size: 1.3rem;
-            margin-bottom: 40px;
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            margin-bottom: 2.5rem;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
             opacity: 0.9;
             text-align: center;
+            padding: 0 1rem;
         }
 
         /* ==================== XİDMƏTLƏR ==================== */
         .services-section {
-            padding: 120px 0;
+            padding: 5rem 0;
             background: var(--snow-white);
             position: relative;
             scroll-margin-top: 90px;
@@ -444,9 +481,9 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-            padding: 0 40px;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -463,6 +500,7 @@
             cursor: pointer;
             border: none;
             text-align: left;
+            width: 100%;
         }
 
         .service-card.visible {
@@ -503,13 +541,13 @@
         }
 
         .service-content {
-            padding: 40px;
+            padding: 2rem;
         }
 
         .service-content h3 {
             font-size: 1.8rem;
             color: var(--primary-blue);
-            margin-bottom: 15px;
+            margin-bottom: 1rem;
             text-align: center;
         }
 
@@ -517,20 +555,20 @@
             color: var(--text-light);
             line-height: 1.6;
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 1.5rem;
         }
 
         .service-features {
             list-style: none;
-            margin-top: 20px;
+            margin-top: 1.5rem;
         }
 
         .service-features li {
-            padding: 10px 0;
+            padding: 0.8rem 0;
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 0.8rem;
             transition: var(--transition);
         }
 
@@ -542,11 +580,12 @@
             width: 24px;
             text-align: center;
             color: var(--winter-teal);
+            flex-shrink: 0;
         }
 
         /* ==================== KOTTECLƏR ==================== */
         .rooms-section {
-            padding: 120px 0;
+            padding: 5rem 0;
             background: var(--snow-white);
             position: relative;
             scroll-margin-top: 90px;
@@ -564,13 +603,13 @@
 
         .rooms-title {
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: 4rem;
         }
 
         .rooms-title h2 {
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 4vw, 3.5rem);
             color: var(--primary-blue);
-            margin-bottom: 20px;
+            margin-bottom: 1rem;
             background: linear-gradient(45deg, var(--primary-blue), var(--winter-teal));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -582,13 +621,14 @@
             max-width: 600px;
             margin: 0 auto;
             font-size: 1.2rem;
+            padding: 0 1rem;
         }
 
         .rooms-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 50px;
-            padding: 0 40px;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+            gap: 2.5rem;
+            padding: 0 2rem;
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -603,6 +643,7 @@
             position: relative;
             opacity: 0;
             transform: translateY(50px);
+            width: 100%;
         }
 
         .room-card.visible {
@@ -645,32 +686,33 @@
 
         .room-badge {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 1rem;
+            right: 1rem;
             background: linear-gradient(135deg, var(--accent-gold), #f59e0b);
             color: var(--text-dark);
-            padding: 10px 25px;
+            padding: 0.5rem 1.2rem;
             border-radius: 25px;
             font-weight: 600;
             font-size: 0.9rem;
             box-shadow: 0 5px 15px rgba(251, 191, 36, 0.3);
+            z-index: 2;
         }
 
         .room-content {
-            padding: 40px;
+            padding: 2rem;
         }
 
         .room-title {
             font-size: 1.8rem;
             color: var(--primary-blue);
-            margin-bottom: 15px;
+            margin-bottom: 1rem;
         }
 
         .room-price {
             font-size: 2.5rem;
             color: var(--accent-gold);
             font-weight: 700;
-            margin: 25px 0;
+            margin: 1.5rem 0;
             text-align: center;
             position: relative;
         }
@@ -687,20 +729,20 @@
 
         .room-features {
             list-style: none;
-            margin: 30px 0;
+            margin: 2rem 0;
         }
 
         .room-features li {
-            padding: 12px 0;
+            padding: 0.8rem 0;
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 1rem;
             transition: var(--transition);
         }
 
         .room-features li:hover {
-            padding-left: 10px;
+            padding-left: 0.5rem;
             background: rgba(96, 165, 250, 0.05);
         }
 
@@ -713,11 +755,12 @@
             text-align: center;
             color: var(--winter-teal);
             font-size: 1.2rem;
+            flex-shrink: 0;
         }
 
-        /* ==================== OLANAQLAR (ŞƏKİLLƏ) ==================== */
+        /* ==================== OLANAQLAR ==================== */
         .facilities-section {
-            padding: 120px 0;
+            padding: 5rem 0;
             background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
             position: relative;
             scroll-margin-top: 90px;
@@ -725,9 +768,9 @@
 
         .facilities-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-            padding: 0 40px;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -741,6 +784,7 @@
             position: relative;
             opacity: 0;
             transform: translateY(50px);
+            width: 100%;
         }
 
         .facility-card.visible {
@@ -765,7 +809,6 @@
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
         }
 
-        /* Şəkil hissəsi */
         .facility-image {
             position: relative;
             height: 250px;
@@ -783,7 +826,6 @@
             transform: scale(1.1);
         }
 
-        /* Overlay və ikon */
         .facility-overlay {
             position: absolute;
             top: 0;
@@ -815,16 +857,15 @@
             background: rgba(255, 255, 255, 0.3);
         }
 
-        /* Mətn hissəsi */
         .facility-content {
-            padding: 30px;
+            padding: 2rem;
             text-align: center;
         }
 
         .facility-content h3 {
             font-size: 1.8rem;
             color: var(--primary-blue);
-            margin-bottom: 15px;
+            margin-bottom: 1rem;
         }
 
         .facility-content p {
@@ -834,7 +875,7 @@
 
         /* ==================== HAQQIMIZDA ==================== */
         .about-section {
-            padding: 120px 0;
+            padding: 5rem 0;
             background: linear-gradient(rgba(30, 58, 138, 0.05), rgba(30, 58, 138, 0.1));
             position: relative;
             scroll-margin-top: 90px;
@@ -843,9 +884,9 @@
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            gap: 4rem;
             align-items: center;
-            padding: 0 40px;
+            padding: 0 2rem;
             max-width: 1400px;
             margin: 0 auto;
             opacity: 0;
@@ -859,9 +900,9 @@
         }
 
         .about-text h3 {
-            font-size: 3rem;
+            font-size: clamp(2rem, 4vw, 3rem);
             color: var(--primary-blue);
-            margin-bottom: 30px;
+            margin-bottom: 2rem;
             background: linear-gradient(45deg, var(--primary-blue), var(--winter-teal));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -869,7 +910,7 @@
         }
 
         .about-text p {
-            margin-bottom: 25px;
+            margin-bottom: 1.5rem;
             color: var(--text-dark);
             font-size: 1.1rem;
             line-height: 1.8;
@@ -878,14 +919,14 @@
         .about-features {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            margin-top: 40px;
+            gap: 2rem;
+            margin-top: 2.5rem;
         }
 
         .about-feature {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 1rem;
             opacity: 0;
             transform: translateX(-20px);
             transition: opacity 0.6s ease, transform 0.6s ease;
@@ -905,6 +946,7 @@
             text-align: center;
             background: rgba(251, 191, 36, 0.1);
             border-radius: 50%;
+            flex-shrink: 0;
         }
 
         .about-image {
@@ -935,7 +977,7 @@
 
         /* ==================== QALEREYA ==================== */
         .gallery-section {
-            padding: 120px 0;
+            padding: 5rem 0;
             background: white;
             scroll-margin-top: 90px;
         }
@@ -945,7 +987,7 @@
             height: 600px;
             border-radius: 25px;
             overflow: hidden;
-            margin-top: 60px;
+            margin-top: 3rem;
             box-shadow: var(--shadow);
             opacity: 0;
             transform: translateY(50px);
@@ -991,11 +1033,12 @@
 
         /* ==================== ƏLAQƏ ==================== */
         .contact-section {
-            padding: 120px 0;
+            padding: 5rem 0;
             background: linear-gradient(rgba(30, 58, 138, 0.95), rgba(13, 148, 136, 0.95)),
                         url('images/contact-bg.jpg');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             color: white;
             position: relative;
             scroll-margin-top: 90px;
@@ -1015,10 +1058,10 @@
         .contact-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 2rem;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            gap: 4rem;
             position: relative;
             z-index: 2;
             opacity: 0;
@@ -1032,8 +1075,8 @@
         }
 
         .contact-info h3 {
-            font-size: 3rem;
-            margin-bottom: 40px;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 2.5rem;
             color: white;
             position: relative;
         }
@@ -1041,7 +1084,7 @@
         .contact-info h3::after {
             content: '';
             position: absolute;
-            bottom: -15px;
+            bottom: -0.8rem;
             left: 0;
             width: 100px;
             height: 4px;
@@ -1053,21 +1096,22 @@
         }
 
         .contact-details li {
-            margin-bottom: 30px;
+            margin-bottom: 2rem;
             display: flex;
             align-items: flex-start;
-            gap: 20px;
+            gap: 1.5rem;
         }
 
         .contact-details i {
             font-size: 1.5rem;
             color: var(--accent-gold);
-            margin-top: 3px;
+            margin-top: 0.2rem;
+            flex-shrink: 0;
         }
 
         .contact-form {
             background: rgba(255, 255, 255, 0.95);
-            padding: 50px;
+            padding: 3rem;
             border-radius: 20px;
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
@@ -1076,7 +1120,7 @@
         .form-title {
             color: var(--primary-blue);
             font-size: 2.2rem;
-            margin-bottom: 30px;
+            margin-bottom: 2rem;
             text-align: center;
         }
 
@@ -1084,7 +1128,7 @@
         .footer {
             background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
             color: white;
-            padding: 100px 0 40px;
+            padding: 5rem 0 2rem;
             position: relative;
         }
 
@@ -1101,18 +1145,18 @@
         .footer-content {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 2rem;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 60px;
+            gap: 3rem;
         }
 
         .footer-column h3 {
             font-size: 1.5rem;
-            margin-bottom: 30px;
+            margin-bottom: 2rem;
             color: var(--accent-gold);
             position: relative;
-            padding-bottom: 15px;
+            padding-bottom: 1rem;
         }
 
         .footer-column h3::after {
@@ -1130,7 +1174,7 @@
         }
 
         .footer-links li {
-            margin-bottom: 15px;
+            margin-bottom: 1rem;
         }
 
         .footer-links a {
@@ -1147,8 +1191,8 @@
 
         .social-links {
             display: flex;
-            gap: 15px;
-            margin-top: 30px;
+            gap: 1rem;
+            margin-top: 2rem;
         }
 
         .social-links a {
@@ -1172,8 +1216,8 @@
 
         .footer-bottom {
             text-align: center;
-            padding-top: 60px;
-            margin-top: 60px;
+            padding-top: 3rem;
+            margin-top: 3rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.6);
             font-size: 0.95rem;
@@ -1182,8 +1226,8 @@
         /* WhatsApp Button */
         .whatsapp-btn {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 2rem;
+            right: 2rem;
             width: 70px;
             height: 70px;
             background: #25D366;
@@ -1214,33 +1258,12 @@
 
         /* ==================== RESPONSİVLİK ==================== */
         @media (max-width: 1200px) {
-            .hero h1 {
-                font-size: 3.8rem;
-            }
-            
             .footer-content {
                 grid-template-columns: repeat(2, 1fr);
             }
             
-            .nav-menu {
-                gap: 10px;
-            }
-            
-            .nav-menu a {
-                padding: 7px 15px;
-                font-size: 0.85rem;
-            }
-            
-            .logo-title {
-                font-size: 1.7rem;
-            }
-            
-            .logo-subtitle {
-                font-size: 1rem;
-            }
-            
-            .custom-logo {
-                height: 55px;
+            .nav-container {
+                padding: 0 1.5rem;
             }
             
             .facility-image {
@@ -1257,11 +1280,12 @@
                 height: 100vh;
                 background: white;
                 flex-direction: column;
-                padding: 120px 40px 40px;
+                padding: 120px 2rem 2rem;
                 box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
                 gap: 0;
                 transition: right 0.4s ease;
                 z-index: 1000;
+                overflow-y: auto;
             }
             
             .nav-menu.active {
@@ -1271,27 +1295,26 @@
             .nav-menu li {
                 margin: 0;
                 border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+                width: 100%;
             }
             
             .nav-menu a {
-                padding: 20px;
+                padding: 1.2rem;
                 display: block;
                 border-radius: 0;
                 text-align: center;
                 font-size: 1.1rem;
+                width: 100%;
             }
             
             .mobile-menu-btn {
-                display: block;
-            }
-            
-            .hero h1 {
-                font-size: 3rem;
+                display: flex;
             }
             
             .about-content,
             .contact-container {
                 grid-template-columns: 1fr;
+                gap: 3rem;
             }
             
             .rooms-grid,
@@ -1306,26 +1329,23 @@
             .hero {
                 margin-top: 90px;
                 height: calc(100vh - 90px);
+                min-height: 500px;
             }
             
             .nav-container {
-                padding: 0 20px;
+                padding: 0 1rem;
             }
             
             .facilities-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            
+            .swiper {
+                height: 400px;
+            }
         }
 
         @media (max-width: 768px) {
-            .logo-title {
-                font-size: 1.5rem;
-            }
-            
-            .logo-subtitle {
-                font-size: 0.9rem;
-            }
-            
             .custom-logo {
                 height: 50px;
             }
@@ -1334,7 +1354,7 @@
             .hero-content,
             .section-container,
             .footer {
-                padding: 0 20px;
+                padding: 0 1rem;
             }
             
             .hero h1 {
@@ -1351,31 +1371,29 @@
             .about-section,
             .gallery-section,
             .contact-section {
-                padding: 80px 0;
+                padding: 4rem 0;
             }
             
             .hero-btns {
                 flex-direction: column;
+                align-items: center;
             }
             
             .btn {
                 width: 100%;
+                max-width: 300px;
                 justify-content: center;
-            }
-            
-            .swiper {
-                height: 400px;
             }
             
             .rooms-grid,
             .services-grid,
             .facilities-grid,
             .about-content {
-                padding: 0 20px;
+                padding: 0 1rem;
             }
             
             .contact-form {
-                padding: 30px 20px;
+                padding: 2rem 1rem;
             }
             
             .facilities-grid,
@@ -1386,11 +1404,32 @@
             .facility-image {
                 height: 200px;
             }
+            
+            .about-image img {
+                height: 400px;
+            }
+            
+            .swiper {
+                height: 300px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            
+            .whatsapp-btn {
+                width: 60px;
+                height: 60px;
+                font-size: 1.8rem;
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 576px) {
             .logo {
-                gap: 8px;
+                gap: 0.5rem;
             }
             
             .logo-title {
@@ -1416,7 +1455,8 @@
             .room-card,
             .service-card,
             .facility-card {
-                padding: 30px 20px;
+                margin: 0 auto;
+                max-width: 100%;
             }
             
             .facility-image {
@@ -1426,6 +1466,220 @@
             .service-icon {
                 height: 150px;
                 font-size: 3rem;
+            }
+            
+            .contact-details li {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .hero-btns .btn {
+                min-width: auto;
+                width: 100%;
+                max-width: 100%;
+            }
+            
+            .nav-menu {
+                width: 100%;
+            }
+            
+            .room-image {
+                height: 220px;
+            }
+            
+            .about-image img {
+                height: 300px;
+            }
+            
+            .swiper {
+                height: 250px;
+            }
+            
+            .footer {
+                padding: 3rem 0 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            html {
+                font-size: 13px;
+            }
+            
+            .hero {
+                padding: 1rem;
+                background-attachment: scroll;
+            }
+            
+            .hero-content {
+                padding: 0 0.5rem;
+            }
+            
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+            
+            .room-price {
+                font-size: 2rem;
+            }
+            
+            .contact-section {
+                background-attachment: scroll;
+            }
+            
+            .whatsapp-btn {
+                width: 55px;
+                height: 55px;
+                font-size: 1.6rem;
+                bottom: 1rem;
+                right: 1rem;
+            }
+        }
+
+        /* Touch Device Optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .service-card:hover,
+            .room-card:hover,
+            .facility-card:hover {
+                transform: none;
+            }
+            
+            .nav-menu a:hover {
+                transform: none;
+            }
+            
+            .btn:hover {
+                transform: none;
+            }
+            
+            .service-card:active,
+            .room-card:active,
+            .facility-card:active {
+                transform: scale(0.98);
+            }
+            
+            /* Improve touch targets */
+            .nav-menu a {
+                padding: 1rem 1.5rem;
+            }
+            
+            .btn {
+                min-height: 50px;
+                padding: 1rem 2rem;
+            }
+            
+            .room-features li,
+            .service-features li {
+                padding: 1rem 0;
+            }
+        }
+
+        /* Landscape Orientation */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .hero {
+                height: auto;
+                min-height: 100vh;
+                padding: 6rem 1rem 3rem;
+            }
+            
+            .header {
+                height: 70px;
+            }
+            
+            .hero {
+                margin-top: 70px;
+            }
+            
+            .custom-logo {
+                height: 50px;
+            }
+            
+            .nav-menu a {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* High Resolution Displays */
+        @media (min-width: 1920px) {
+            .section-container,
+            .nav-container,
+            .footer-content {
+                max-width: 1600px;
+            }
+            
+            .hero h1 {
+                font-size: 5rem;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .header,
+            .hero-btns,
+            .whatsapp-btn,
+            .swiper-button-next,
+            .swiper-button-prev,
+            .footer {
+                display: none !important;
+            }
+            
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .hero {
+                height: auto;
+                margin-top: 0;
+                background: white;
+                color: black;
+            }
+            
+            .hero h1 {
+                color: black;
+                background: none;
+                -webkit-text-fill-color: black;
+            }
+            
+            .section-title h2 {
+                color: black;
+            }
+        }
+
+        /* Accessibility Improvements */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text-dark: #f9fafb;
+                --text-light: #d1d5db;
+                --snow-white: #111827;
+            }
+            
+            body {
+                background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+            }
+            
+            .service-card,
+            .room-card,
+            .facility-card,
+            .contact-form {
+                background: #1f2937;
+                color: #f9fafb;
+            }
+            
+            .service-content p,
+            .facility-content p,
+            .room-features li {
+                color: #d1d5db;
             }
         }
     </style>
@@ -1438,10 +1692,10 @@
     <header class="header" id="header">
         <nav class="nav-container">
             <a href="#home" class="logo">
-                <img src="images/logo.jpeg" alt="My Way Village Hotel Resort & Spa" class="custom-logo">
+                <img src="images/logo.jpeg" alt="My Way Village Hotel Resort & Spa" class="custom-logo" loading="lazy">
                 <div class="logo-text">
                     <div class="logo-main">
-                        <span class="logo-title">My Way Village</span>
+                        <span class="logo-title">My Way Village Resort</span>
                         <span class="logo-subtitle">Hotel & Spa</span>
                     </div>
                 </div>
@@ -1457,7 +1711,7 @@
                 <li><a href="#contact">Əlaqə</a></li>
             </ul>
             
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menyunu aç/bağla">
                 <i class="fas fa-bars"></i>
             </button>
         </nav>
@@ -1487,11 +1741,11 @@
                 <h2>Həftəsonu Üçün Rezervasiya Edin</h2>
             </div>
             <p>Ən yaxşı kottecləri seçin və xüsusi qiymətlərdən yararlanın. Online rezervasiya ilə 24 saat ərzində təsdiq alın.</p>
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="#contact" class="btn btn-primary" style="font-size: 1.2rem; padding: 20px 50px;">
+            <div style="text-align: center; margin-top: 2.5rem;">
+                <a href="#contact" class="btn btn-primary" style="font-size: 1.2rem; padding: 1.2rem 3rem;">
                     <i class="fas fa-phone-alt"></i> +994 50 309 93 92
                 </a>
-                <button onclick="openBooking()" class="btn btn-secondary" style="font-size: 1.2rem; padding: 20px 50px; margin-left: 20px;">
+                <button onclick="openBooking()" class="btn btn-secondary" style="font-size: 1.2rem; padding: 1.2rem 3rem; margin-left: 1rem;">
                     <i class="fas fa-external-link-alt"></i> Online Booking
                 </button>
             </div>
@@ -1519,10 +1773,9 @@
                         <li><i class="fas fa-check-circle"></i> Peşəkar inkişaf imkanları</li>
                         <li><i class="fas fa-check-circle"></i> Xüsusi təlimlər</li>
                         <li><i class="fas fa-check-circle"></i> Rəqabətli maaş paketi</li>
-                       
                     </ul>
                     
-                    <div style="text-align: center; margin-top: 20px;">
+                    <div style="text-align: center; margin-top: 1.5rem;">
                         <span class="btn btn-primary" style="display: inline-block; pointer-events: none;">
                             <i class="fas fa-paper-plane"></i> Müraciət et
                         </span>
@@ -1579,7 +1832,7 @@
             <!-- Standart Kottec -->
             <div class="room-card">
                 <div class="room-image">
-                    <img src="images/s otaq.jpeg" alt="Standart Kottec">
+                    <img src="images/s otaq.jpeg" alt="Standart Kottec" loading="lazy">
                     <div class="room-badge">Ən Çox Seçilən</div>
                 </div>
                 <div class="room-content">
@@ -1598,7 +1851,7 @@
                         <li><i class="fas fa-mug-hot"></i> Çay/kofe dəsti</li>
                     </ul>
                     
-                    <a href="#contact" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
+                    <a href="#contact" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;">
                         <i class="fas fa-bookmark"></i> Rezervasiya Et
                     </a>
                 </div>
@@ -1607,7 +1860,7 @@
             <!-- Duplex Kottec -->
             <div class="room-card">
                 <div class="room-image">
-                    <img src="images/duplexk.jpeg" alt="Duplex Kottec">
+                    <img src="images/duplexk.jpeg" alt="Duplex Kottec" loading="lazy">
                     <div class="room-badge">Yeni</div>
                 </div>
                 <div class="room-content">
@@ -1626,7 +1879,7 @@
                         <li><i class="fas fa-tree"></i> Dağ mənzərəsi</li>
                     </ul>
                     
-                    <a href="#contact" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
+                    <a href="#contact" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;">
                         <i class="fas fa-bookmark"></i> Rezervasiya Et
                     </a>
                 </div>
@@ -1635,7 +1888,7 @@
             <!-- VIP Kottec -->
             <div class="room-card">
                 <div class="room-image">
-                    <img src="images/duplex.jpeg" alt="VIP Kottec">
+                    <img src="images/duplex.jpeg" alt="VIP Kottec" loading="lazy">
                     <div class="room-badge">Ailə üçün</div>
                 </div>
                 <div class="room-content">
@@ -1653,7 +1906,7 @@
                         <li><i class="fas fa-hot-tub"></i> Jacuzzi (Tip 2-də)</li>
                     </ul>
                     
-                    <a href="#contact" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
+                    <a href="#contact" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;">
                         <i class="fas fa-bookmark"></i> Rezervasiya Et
                     </a>
                 </div>
@@ -1673,7 +1926,7 @@
                 <!-- Hovuz -->
                 <div class="facility-card">
                     <div class="facility-image">
-                        <img src="images/hovuz.jpeg" alt="Dağ mənzərəli hovuz">
+                        <img src="images/hovuz.jpeg" alt="Dağ mənzərəli hovuz" loading="lazy">
                         <div class="facility-overlay">
                             <div class="facility-icon">
                                 <i class="fas fa-swimming-pool"></i>
@@ -1689,7 +1942,7 @@
                 <!-- Barbekü Zonası -->
                 <div class="facility-card">
                     <div class="facility-image">
-                        <img src="images/barbuke.jpeg" alt="Barbekü zonası">
+                        <img src="images/barbuke.jpeg" alt="Barbekü zonası" loading="lazy">
                         <div class="facility-overlay">
                             <div class="facility-icon">
                                 <i class="fas fa-fire"></i>
@@ -1705,7 +1958,7 @@
                 <!-- Spa & Wellness -->
                 <div class="facility-card">
                     <div class="facility-image">
-                        <img src="images/q3.jpeg" alt="Spa & Wellness">
+                        <img src="images/q3.jpeg" alt="Spa & Wellness" loading="lazy">
                         <div class="facility-overlay">
                             <div class="facility-icon">
                                 <i class="fas fa-spa"></i>
@@ -1721,7 +1974,7 @@
                 <!-- Restoran & Teras -->
                 <div class="facility-card">
                     <div class="facility-image">
-                        <img src="images/restaran.jpeg" alt="Restoran & Teras">
+                        <img src="images/restaran.jpeg" alt="Restoran & Teras" loading="lazy">
                         <div class="facility-overlay">
                             <div class="facility-icon">
                                 <i class="fas fa-utensils"></i>
@@ -1778,7 +2031,7 @@
             </div>
             
             <div class="about-image">
-                <img src="images/about.jpeg" alt="My Way Village & Spa">
+                <img src="images/about.jpeg" alt="My Way Village & Spa" loading="lazy">
             </div>
         </div>
     </section>
@@ -1794,61 +2047,61 @@
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img src="images/q1.jpeg" alt="Otel Görünüşü">
+                        <img src="images/q1.jpeg" alt="Otel Görünüşü" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="images/q2.jpeg" alt="Kottec İçi">
+                        <img src="images/q2.jpeg" alt="Kottec İçi" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="images/q3.jpeg" alt="Standart Otaq">
+                        <img src="images/q3.jpeg" alt="Standart Otaq" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="images/q4.jpeg" alt="Duplex Kottec">
+                        <img src="images/q4.jpeg" alt="Duplex Kottec" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="images/q5.jpeg" alt="Duplex Kottec">
+                        <img src="images/q5.jpeg" alt="Duplex Kottec" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="images/q6.jpeg" alt="Duplex Kottec">
+                        <img src="images/q6.jpeg" alt="Duplex Kottec" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="images/q7.jpeg" alt="Duplex Kottec">
+                        <img src="images/q7.jpeg" alt="Duplex Kottec" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="images/q8.jpeg" alt="Duplex Kottec">
+                        <img src="images/q8.jpeg" alt="Duplex Kottec" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="images/q9.jpeg" alt="Duplex Kottec">
+                        <img src="images/q9.jpeg" alt="Duplex Kottec" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="images/q10.jpeg" alt="Duplex Kottec">
+                        <img src="images/q10.jpeg" alt="Duplex Kottec" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="images/q11q.jpeg" alt="Duplex Kottec">
+                        <img src="images/q11q.jpeg" alt="Duplex Kottec" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="images/q12.jpeg" alt="Duplex Kottec">
+                        <img src="images/q12.jpeg" alt="Duplex Kottec" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="images/q13.jpeg" alt="Duplex Kottec">
+                        <img src="images/q13.jpeg" alt="Duplex Kottec" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="images/q14.jpeg" alt="Duplex Kottec">
+                        <img src="images/q14.jpeg" alt="Duplex Kottec" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="images/q15.jpeg" alt="Duplex Kottec">
+                        <img src="images/q15.jpeg" alt="Duplex Kottec" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="images/q16q.jpeg" alt="Duplex Kottec">
+                        <img src="images/q16q.jpeg" alt="Duplex Kottec" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="images/q17.jpeg" alt="Duplex Kottec">
+                        <img src="images/q17.jpeg" alt="Duplex Kottec" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="images/q18.jpeg" alt="Duplex Kottec">
+                        <img src="images/q18.jpeg" alt="Duplex Kottec" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="images/q19.jpeg" alt="Duplex Kottec">
+                        <img src="images/q19.jpeg" alt="Duplex Kottec" loading="lazy">
                     </div>
                 </div>
                 
@@ -1894,26 +2147,24 @@
                         </div>
                     </li>
                 </ul>
-                
-               
             </div>
             
             <div class="contact-form">
                 <h3 class="form-title">Rezervasiya Üçün Zəng Edin</h3>
-                <p style="color: var(--text-light); margin-bottom: 30px; text-align: center;">
+                <p style="color: var(--text-light); margin-bottom: 2rem; text-align: center;">
                     Kottec rezervasiyası etmək və ya məlumat almaq üçün birbaşa bizə zəng edin:
                 </p>
                 
                 <div style="text-align: center;">
-                    <a href="tel:+994503099392" style="display: inline-block; background: linear-gradient(135deg, var(--accent-gold), #f59e0b); color: var(--text-dark); padding: 20px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.3rem; transition: var(--transition); margin-bottom: 30px;">
+                    <a href="tel:+994503099392" style="display: inline-block; background: linear-gradient(135deg, var(--accent-gold), #f59e0b); color: var(--text-dark); padding: 1.2rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.3rem; transition: var(--transition); margin-bottom: 2rem;">
                         <i class="fas fa-phone-alt"></i> +994 50 309 93 92
                     </a>
                     
-                    <p style="color: var(--text-light); margin: 30px 0 20px; font-size: 1.1rem;">
+                    <p style="color: var(--text-light); margin: 2rem 0 1.5rem; font-size: 1.1rem;">
                         Və ya WhatsApp üzərindən yazın:
                     </p>
                     
-                    <a href="https://wa.me/994503099392" style="display: inline-flex; align-items: center; gap: 15px; background: #25D366; color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: var(--transition);">
+                    <a href="https://wa.me/994503099392" style="display: inline-flex; align-items: center; gap: 1rem; background: #25D366; color: white; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: var(--transition);">
                         <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i> WhatsApp-dan Yazın
                     </a>
                 </div>
@@ -1926,7 +2177,7 @@
         <div class="footer-content">
             <div class="footer-column">
                 <h3>My Way Village Hotel & Spa</h3>
-                <p style="color: rgba(255, 255, 255, 0.8); margin-top: 20px; line-height: 1.6;">
+                <p style="color: rgba(255, 255, 255, 0.8); margin-top: 1.5rem; line-height: 1.6;">
                     İsmayıllının Çayqovuşan kəndində yerləşən premium kottec oteli. Qarlı dağ mənzərəsi, spa mərkəzi və modern rahatlıqla unikal təcrübə.
                 </p>
             </div>
@@ -1959,10 +2210,10 @@
             <div class="footer-column">
                 <h3>Əlaqə</h3>
                 <ul class="footer-links">
-                    <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> İsmayıllı, Çayqovuşan</li>
-                    <li><i class="fas fa-phone-alt" style="margin-right: 10px;"></i> +994 50 309 93 92</li>
-                    <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> mywayvillagehotelandresorts@gmail.com</li>
-                    <li><i class="fas fa-clock" style="margin-right: 10px;"></i> 24/7 Açıq</li>
+                    <li><i class="fas fa-map-marker-alt" style="margin-right: 0.5rem;"></i> İsmayıllı, Çayqovuşan</li>
+                    <li><i class="fas fa-phone-alt" style="margin-right: 0.5rem;"></i> +994 50 309 93 92</li>
+                    <li><i class="fas fa-envelope" style="margin-right: 0.5rem;"></i> mywayvillagehotelandresorts@gmail.com</li>
+                    <li><i class="fas fa-clock" style="margin-right: 0.5rem;"></i> 24/7 Açıq</li>
                 </ul>
             </div>
         </div>
@@ -1973,7 +2224,7 @@
     </footer>
 
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/994503099392" class="whatsapp-btn" target="_blank">
+    <a href="https://wa.me/994503099392" class="whatsapp-btn" target="_blank" aria-label="WhatsApp üzərindən yazın">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -2000,6 +2251,18 @@
                 effect: 'slide',
                 speed: 1000,
                 grabCursor: true,
+                slidesPerView: 1,
+                spaceBetween: 10,
+                breakpoints: {
+                    768: {
+                        slidesPerView: 1,
+                        spaceBetween: 20
+                    },
+                    992: {
+                        slidesPerView: 1,
+                        spaceBetween: 30
+                    }
+                }
             });
 
             // Mobile Menu Toggle
@@ -2110,7 +2373,7 @@
         // Snow Effect
         function createSnow() {
             const snowContainer = document.getElementById('snowContainer');
-            const snowflakeCount = 200;
+            const snowflakeCount = window.innerWidth < 768 ? 100 : 200;
             
             for (let i = 0; i < snowflakeCount; i++) {
                 const snowflake = document.createElement('div');
@@ -2172,7 +2435,7 @@
         // ========== KARYERA FUNKSİYASI ==========
         function openCareer() {
             // WhatsApp nömrəniz
-            const phoneNumber = "994503099392"; // Buraya nömrənizi yazın
+            const phoneNumber = "994503099392";
             
             // WhatsApp mesaj mətni
             const message = `Salam, My Way Village Hotel Resort & Spa komandasına qoşulmaq istəyirəm.%0A%0A` +
@@ -2196,28 +2459,8 @@
 
         // ========== BOOKİNG FUNKSİYASI ==========
         function openBooking() {
-            // Booking linkinizi buraya əlavə edin
-            const bookingUrl = "https://www.booking.com/hotel/az/my-way-willage-amp-spa.tr.html?aid=304142&label=gen173nr-10CAEoggI46AdIM1gEaBGIAQGYATO4ARfIAQzYAQPoAQH4AQGIAgGoAgG4Av6KgsoGwAIB0gIkMmRhZjAyZTYtZTkzZi00YmUxLWExMjAtMGEzM2Q2ZjM1YjNi2AIB4AIB&sid=3020460a2fe34ddf325872abb181c411&all_sr_blocks=1458733901_422091920_0_1_0&checkin=2025-12-17&checkout=2025-12-18&dest_id=14587339&dest_type=hotel&dist=0&group_adults=2&group_children=0&hapos=1&highlighted_blocks=1458733901_422091920_0_1_0&hpos=1&matching_block_id=1458733901_422091920_0_1_0&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=1458733901_422091920_0_1_0__20000&srepoch=1765836166&srpvid=77b49b0da26101d0&type=total&ucfs=1&"; // Buraya booking linkinizi yazın
-            
-            // Yeni pəncərədə aç
+            const bookingUrl = "https://www.booking.com/hotel/az/my-way-willage-amp-spa.tr.html";
             window.open(bookingUrl, '_blank');
-            
-            // Əlavə olaraq WhatsApp mesajı da göndərmək istəyirsinizsə:
-            // const phoneNumber = "994503099392";
-            // const bookingMessage = "Salam, My Way Village Hotel Resort & Spa üçün rezervasiya etmək istəyirəm. Mənə kömək edə bilərsinizmi?";
-            // window.open(`https://wa.me/${phoneNumber}?text=${bookingMessage}`, '_blank');
-        }
-
-        // ========== NAVBARDA "XİDMƏTLƏR" LINKİ ÜÇÜN ==========
-        function scrollToServices() {
-            const servicesSection = document.getElementById('services');
-            if (servicesSection) {
-                const offsetTop = servicesSection.offsetTop - 90;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
         }
     </script>
 </body>
